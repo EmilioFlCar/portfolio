@@ -1,0 +1,15 @@
+[
+    { "name": "Node.js", "icon": "mdi:nodejs"},
+    { "name": "Express.js", "icon": "lineicons:expressjs" },
+    { "name": "PostgreSQL", "icon": "lineicons:postgresql" },
+    { "name": "MongoDB", "icon": "lineicons:mongodb" },
+    { "name": "Sequelize", "icon": "file-icons:sequelize" },
+    { "name": "React.js", "icon": "mdi:react" },
+    { "name": "Vue.js", "icon": "mdi:vuejs" },
+    { "name": "Material-UI", "icon": "mdi:material-ui" },
+    { "name": "Bulma", "icon": "mdi:bulma" },
+    { "name": "Tailwind CSS", "icon": "mdi:tailwind" },
+    { "name": "Redux", "icon": "bxl:redux" },
+    { "name": "Swagger", "icon": "file-icons:swagger" },
+    { "name": "AWS S3", "icon": "mdi:aws" }
+  ]

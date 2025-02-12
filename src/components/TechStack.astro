@@ -1,0 +1,13 @@
+---
+import techs from "../content/projects/techs.json";
+import TechIcon from "./TechIcon.astro";
+const { techStack } = Astro.props;
+---
+
+<div class="flex flex-wrap">
+{
+    techs.filter((tech) => techStack.includes(tech.name)).map((filteredTech) => (
+            <TechIcon tech={filteredTech} />
+    ))
+}
+</div>
