@@ -2,13 +2,14 @@
 @import "tailwindcss";
 
 @theme {
+    --color-background: #2b2d42;
     --color-primary: #f3d052;
     --color-secondary: #B0413E;
-    --color-tertiary: #FAF0CA;
-    --color-text-secondary: #FAF0CAD1;
+    --color-accent: #FAF0CA;
+    --color-accentd1: #FAF0CAD1;
     
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    /* font-family: 'Inter', sans-serif; */
 }
