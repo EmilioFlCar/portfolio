@@ -6,7 +6,7 @@ const { title, link, technologies, image } = project.data;
 ---
 
 <div
-  class="bg-[#2B2D42] hover:bg-[#3E4259] border-[#3E4259] md:hover:text-[#f3d052] text-[#f3d052] rounded-lg hover:shadow-md p-2 transition-colors duration-200"
+  class="bg-background hover:bg-[#3E4259] border-[#3E4259] md:hover:text-primary text-primary rounded-lg hover:shadow-md p-2 transition-colors duration-200"
 >
   <div class="p-4 md:grid md:grid-cols-4 md:gap-4">
     <div class="md:col-span-1 hidden md:block">
@@ -21,7 +21,7 @@ const { title, link, technologies, image } = project.data;
         <div class="md:row-1">
           <button>
             <a href={link} target="_blank" rel="noopener noreferrer">
-              <span class="text-[#f3d052]">DEMO</span>
+              <span class="text-primary">DEMO</span>
             </a>
           </button>
         </div>
@@ -34,7 +34,7 @@ const { title, link, technologies, image } = project.data;
         </h2>
       </div>
       <div class="py-2">
-        <p class="text-[#faf0cad1] text-sm">
+        <p class="text-accentd1 text-sm">
           {project.body}
         </p>
       </div>
@@ -52,7 +52,7 @@ const { title, link, technologies, image } = project.data;
         </div>
         <div class="mt-2">
           <button
-            class="bg-[#f3d052] text-black rounded px-4 py-2 hover:bg-[#e8c849] transition-colors duration-200"
+            class="bg-primary text-background font-extrabold rounded px-4 py-2 hover:bg-[#e8c849] transition-colors duration-200"
           >
             <a href={link} target="_blank" rel="noopener noreferrer">
               <span>DEMO</span>
