@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 import CardExp from "../components/CardExp.astro";
 import CardProject from "../components/CardProject.astro";
 import ContactForm from "../components/ContactForm.tsx";
@@ -11,23 +12,25 @@ const experiences = await getCollection("experiences");
 const projects = await getCollection("projects");
 const sections = [
   { name: "ABOUT ME", id: "about" },
-  { name: "EXPERIENCE", id: "experience" },
+  // { name: "EXPERIENCE", id: "experience" },
   { name: "PROJECTS", id: "projects" },
   { name: "CONTACT", id: "contact" },
 ];
 ---
 
 <Layout>
-  <div class="p-4 md:flex h-screen">
-    <div class="pb-9 pt-5 px-4 md:ml-30 md:mt-16 md:h-screen md:w-1/2">
-      <div class="md:fixed">
+  <div
+    class="p-4 grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-screen-xl mx-auto"
+  >
+    <div class="gap-6 pb-9 pt-5 px-4 md:ml-30 md:mt-16">
+      <div class="flex flex-col xl:gap-10 lg:fixed">
         <div>
           <h1
-            class="text-5xl md:text-[50px] font-bold tracking-tight sm:text-5xl text-primary"
+            class="text-5xl font-bold md:text-5xl xl:text-5xl tracking-tight text-primary"
           >
             Emilio Florez
           </h1>
-          <h2 class="text-2xl text-accent">Fullstack developer</h2>
+          <h2 class="text-2xl xl:text-2xl text-accent">Fullstack developer</h2>
         </div>
         <div class="mt-10">
           <ul id="menu">
@@ -40,7 +43,7 @@ const sections = [
                   />
                   <a
                     href={`#${section.id}`}
-                    class="text-accentd1 section-link hover:text-primary"
+                    class="text-accentd1 section-link hover:text-primary xl:text-lg"
                     data-id={section.id}
                   >
                     {section.name}
@@ -50,37 +53,66 @@ const sections = [
             }
           </ul>
         </div>
-        <div class="flex space-x-4 md:mt-10">
-          <SocialIcon name={"mdi:linkedin"} />
-          <SocialIcon name={"mdi:github"} />
-          <SocialIcon name={"mdi:gmail"} />
+        <div class="space-x-4 mt-10 flex flex-row">
+          <a
+            href="/Emilio Florez CV (EN).pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center bg-primary text-background font-extrabold rounded px-4 py-2 transition-transform duration-200 hover:scale-105 gap-2"
+          >
+            Download CV
+            <Icon name={"mdi:download"} size={25} />
+          </a>
+        </div>
+        <div class="flex mt-10 gap-4">
+          <SocialIcon
+            name={"mdi:linkedin"}
+            link="https://www.linkedin.com/in/emiliofc/"
+          />
+          <SocialIcon
+            name={"mdi:github"}
+            link="https://github.com/EmilioFlCar"
+          />
+          <SocialIcon name={"mdi:gmail"} link="mailto:emiliofc.dev@gmail.com" />
         </div>
       </div>
     </div>
 
-    <div class="md:mr-30 md:mt-20 text-[#faf0cad1] md:w-1/2">
-      <section id="about" class="mb-10 p-4 scroll-mt-10 section">
-        <p>
-          Lorem ipsum dolor <a class="text-[#FAF0CA]">sit amet</a>, consectetur
-          adipiscing elit. Nullam ut nisi leo. Aliquam tristique ex odio, eget
-          consectetur turpis ultrices blandit. Suspendisse sit amet tempor
-          justo. In luctus ante hendrerit nunc efficitur, et congue turpis
-          accumsan. Nam vitae sagittis purus, quis porttitor lectus. Aliquam
-          blandit velit eget lacus congue, vestibulum porta ipsum pellentesque.
-          Morbi rutrum, massa sed tristique bibendum, nisi sem eleifend nibh,
-          vitae congue sem nisl sed turpis. Cras dapibus odio in hendrerit
-          auctor. Cras quis rhoncus elit. Nunc eget neque vel ligula vulputate
-          pretium. Nulla faucibus aliquet est in bibendum. Phasellus vitae augue
-          at velit posuere dignissim. Duis non dui diam. Aliquam erat volutpat.
-          Donec dictum quis mi eu rhoncus. Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit. Nullam ut nisi leo. Aliquam tristique ex
-          odio, eget consectetur turpis ultrices blandit. Suspendisse sit amet
-          tempor justo. In luctus ante hendrerit nunc efficitur, et congue
-          turpis accumsan. Nam vitae sagittis purus, quis porttitor lectus.
+    <div
+      class="md:pl-40 md:pr-20 md:pt-30 xl:pl-40 lg:col-span-2 text-[#faf0cad1] max-w-screen xl:max-w-6xl"
+    >
+      <section id="about" class="section md:pb-16 scroll-mt-10 px-4">
+        <p class="text-accentd1 md:text-base xl:text-lg xl:leading-7">
+          Hi, I’m a <strong>Fullstack Developer</strong> from Colombia.<br /><br
+          />
+
+          I enjoy building <strong
+            >web applications that solve real problems</strong
+          > and create value, whether through intuitive interfaces or robust backend
+          systems. I’ve worked with technologies like <strong
+            >React, Next.js, Node.js, Supabase, and PostgreSQL</strong
+          >, and I’m comfortable moving between <strong
+            >frontend and backend</strong
+          > to bring ideas to life.<br /><br />
+
+          I consider myself <strong>curious and adaptable</strong>: I learn
+          quickly, I’m not afraid to take on new challenges, and I care about
+          writing <strong>clean and maintainable code</strong>. Right now, I’m
+          focused on <strong>growing as a developer</strong>, contributing to <strong
+            >meaningful projects</strong
+          >, and collaborating with <strong
+            >teams where I can keep improving</strong
+          >.<br /><br />
+
+          Outside of coding, I dedicate time to <strong
+            >continuous learning</strong
+          >, and <strong
+            >exploring ideas that can evolve into impactful solutions</strong
+          >.
         </p>
       </section>
 
-      <section id="experience" class="mb-10 section">
+      <!-- <section class="section" id="experience" class="mb-10 section">
         <h1 class="text-4xl text-center">Experience</h1>
         <ul>
           {
@@ -91,65 +123,109 @@ const sections = [
             ))
           }
         </ul>
-      </section>
+      </section> -->
 
       <section id="projects" class="mb-10 section">
-        <h1 class="text-4xl text-center">Projects</h1>
         <ul>
           {
-            projects.map((project) => (
-              <li class="mb-6">
-                <CardProject project={project} />
-              </li>
-            ))
+            projects
+              .sort((a, b) => (a.data?.order ?? 0) - (b.data?.order ?? 0))
+              .map((project) => (
+                <li class="mb-6">
+                  <CardProject project={project} />
+                </li>
+              ))
           }
         </ul>
       </section>
 
-      <section id="contact" class="section">
+      <section class="section" id="contact">
         <ContactForm client:load />
       </section>
+      <footer
+        class="mt-20 py-6  text-center text-sm text-accentd1"
+      >
+        <p class="mt-1 opacity-80 md:text-base xl:text-lg px-4">
+          Built with <strong>Astro</strong>, styled with <strong>TailwindCSS</strong>, and enhanced with <strong>React</strong> for
+          some interactive components, deployed on <strong>Vercel</strong>.
+        </p>
+        <a
+          target="_blank"
+          href="https://open.spotify.com/intl-es/track/7I3skNaQdvZSS7zXY2VHId?si=85813b5e89a44d00">
+        <svg
+          class="mx-auto mt-6 opacity-50 hover:opacity-100 hover:scale-125 transition-all duration-300"
+          xmlns="http://www.w3.org/2000/svg"
+          x="0px"
+          y="0px"
+          width="35"
+          height="35"
+          viewBox="0,0,255.99057,255.99057"
+        >
+          <g
+            fill="#dde108"
+            fill-rule="nonzero"
+            stroke="none"
+            stroke-width="1"
+            stroke-linecap="butt"
+            stroke-linejoin="miter"
+            stroke-miterlimit="10"
+            stroke-dasharray=""
+            stroke-dashoffset="0"
+            font-family="none"
+            font-weight="none"
+            font-size="none"
+            text-anchor="none"
+            style="mix-blend-mode: normal"
+            ><g transform="scale(5.12,5.12)"
+              ><path
+                d="M25,2c-12.69071,0 -23,10.3093 -23,23c0,12.6907 10.30929,23 23,23c12.69071,0 23,-10.3093 23,-23c0,-12.6907 -10.30929,-23 -23,-23zM25,4c11.60983,0 21,9.39017 21,21c0,11.60983 -9.39017,21 -21,21c-11.60983,0 -21,-9.39017 -21,-21c0,-11.60982 9.39017,-21 21,-21zM11,15v20h2v-20zM16,15v20h2v-20zM34.09375,15.57617l-7,15l1.8125,0.84766l7,-15zM39.09375,15.57617l-7,15l1.8125,0.84766l7,-15zM21,24v2h6v-2z"
+              ></path></g
+            ></g
+          >
+        </svg>
+        </a>
+      </footer>
     </div>
   </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const sections = document.querySelectorAll(".section");
-      const menuLinks = document.querySelectorAll(".section-link");
-      const menuDivs = document.querySelectorAll("ul#menu div");
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              menuLinks.forEach((link) => {
-                link.classList.remove("font-bold", "text-primary");
-              });
-
-              menuDivs.forEach((div) => {
-                div.classList.remove("w-10", "bg-primary");
-              });
-
-              const activeLink = document.querySelector(
-                `.section-link[data-id='${entry.target.id}']`
-              );
-              if (activeLink) {
-                activeLink.classList.add("font-bold", "text-primary");
-              }
-
-              const activeDiv = document.querySelector(
-                `div[data-id='${entry.target.id}']`
-              );
-              if (activeDiv) {
-                activeDiv.classList.add("w-10", "h-0.5", "bg-primary");
-              }
-            }
-          });
-        },
-        { threshold: 0.8 }
-      );
-
-      sections.forEach((section) => observer.observe(section));
-    });
-  </script>
 </Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(".section");
+    const menuLinks = document.querySelectorAll(".section-link");
+    const menuDivs = document.querySelectorAll("ul#menu div");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            menuLinks.forEach((link) => {
+              link.classList.remove("font-bold", "text-primary");
+            });
+
+            menuDivs.forEach((div) => {
+              div.classList.remove("w-10", "bg-primary");
+            });
+
+            const activeLink = document.querySelector(
+              `.section-link[data-id='${entry.target.id}']`,
+            );
+            if (activeLink) {
+              activeLink.classList.add("font-bold", "text-primary");
+            }
+
+            const activeDiv = document.querySelector(
+              `div[data-id='${entry.target.id}']`,
+            );
+            if (activeDiv) {
+              activeDiv.classList.add("w-10", "h-0.5", "bg-primary");
+            }
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  });
+</script>

@@ -1,9 +1,11 @@
 ---
 title: "Electronic Dictionary"
-role: "Fullstack developer"
-link: "https://diccionario.popular.edu.co"
-technologies: ["Vue.js", "Bulma", "Node.js", "Express", "MongoDB", "AWS S3"]
-image: "https://thumbs.dreamstime.com/b/no-preview-red-stamp-text-white-56287781.jpg"
+role: "Fullstack Developer"
+order: 4
+githubLink: "https://github.com/EmFloCar/dehp-app"
+technologies: ["Vue.js", "Bulma", "Node.js", "Express.js", "MongoDB", "AWS S3"]
+images: [
+]
 ---
 
-Worked on the development of the Electronic Dictionary of the Popular Speech of the Sinú and San Jorge River Valleys, a project focused on preserving regional linguistic traditions. I built a robust API with Node.js and Express.js, integrated MongoDB for data storage, and configured AWS S3 for image management. Additionally, I developed the frontend using Vue.js and Bulma for an interactive experience, implemented JWT for secure authentication, and deployed the platform for public use.
+Developed a web platform to preserve and share the popular speech of the Sinú and San Jorge River Valleys, in collaboration with the University of Córdoba. The project serves as a digital archive that allows users to explore the region’s rich linguistic and cultural heritage through an accessible and interactive interface. Built with Vue.js and Node.js, and powered by MongoDB and AWS S3 for secure data and image handling.

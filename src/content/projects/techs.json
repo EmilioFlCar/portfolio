@@ -1,15 +1,21 @@
 [
-    { "name": "Node.js", "icon": "mdi:nodejs"},
-    { "name": "Express.js", "icon": "lineicons:expressjs" },
-    { "name": "PostgreSQL", "icon": "lineicons:postgresql" },
-    { "name": "MongoDB", "icon": "lineicons:mongodb" },
-    { "name": "Sequelize", "icon": "file-icons:sequelize" },
-    { "name": "React.js", "icon": "mdi:react" },
-    { "name": "Vue.js", "icon": "mdi:vuejs" },
-    { "name": "Material-UI", "icon": "mdi:material-ui" },
-    { "name": "Bulma", "icon": "mdi:bulma" },
-    { "name": "Tailwind CSS", "icon": "mdi:tailwind" },
-    { "name": "Redux", "icon": "bxl:redux" },
-    { "name": "Swagger", "icon": "file-icons:swagger" },
-    { "name": "AWS S3", "icon": "mdi:aws" }
-  ]
+  { "name": "Next.js", "icon": "file-icons:nextjs", "color": "#000000" },
+  { "name": "React.js", "icon": "mdi:react", "color": "#61DAFB" },
+  { "name": "Vue.js", "icon": "mdi:vuejs", "color": "#42B883" },
+  { "name": "Typescript", "icon": "lineicons:typescript", "color": "#3178C6" },
+  { "name": "Tailwind", "icon": "mdi:tailwind", "color": "#06B6D4" },
+  { "name": "Zustand", "icon": "devicon-plain:zustand", "color": "#443E38" },
+  { "name": "Supabase", "icon": "lineicons:supabase", "color": "#3ECF8E" },
+  { "name": "Node.js", "icon": "mdi:nodejs", "color": "#339933" },
+  { "name": "Express.js", "icon": "lineicons:expressjs", "color": "#000000" },
+  { "name": "PostgreSQL", "icon": "lineicons:postgresql", "color": "#336791" },
+  { "name": "MongoDB", "icon": "lineicons:mongodb", "color": "#47A248" },
+  { "name": "Sequelize", "icon": "file-icons:sequelize", "color": "#52B0E7" },
+  { "name": "Vercel", "icon": "lineicons:vercel", "color": "#000000" },
+  { "name": "AWS S3", "icon": "mdi:aws", "color": "#FF9900" },
+  { "name": "Redux", "icon": "bxl:redux", "color": "#764ABC" },
+  { "name": "Swagger", "icon": "file-icons:swagger", "color": "#85EA2D" },
+  { "name": "Material-UI", "icon": "mdi:material-ui", "color": "#007FFF" },
+  { "name": "Bulma", "icon": "mdi:bulma", "color": "#00D1B2" }
+]
+

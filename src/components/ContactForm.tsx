@@ -1,123 +1,90 @@
-import { useState } from "react";
-import { supabase } from "../lib/supabase";
+import React from "react";
+import { useForm, ValidationError } from "@formspree/react";
+import { IoIosSend } from "react-icons/io";
 
 export default function ContactForm() {
-  const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const [state, handleSubmit] = useForm("meozbgvr");
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormState({
-      ...formState,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try {
-      const { data, error } = await supabase
-        .from("contacts")
-        .insert([
-          {
-            name: formState.name,
-            email: formState.email,
-            subject: formState.subject,
-            message: formState.message,
-          },
-        ])
-        .select();
-
-      if (error) {
-        throw new Error(error.message);
-      } else {
-        setFormState({ name: "", email: "", subject: "", message: "" });
-        console.log("Message sent successfully:", data);
-      }
-    } catch (error) {
-      console.error("Unexpected error:", error);
-    }
-  };
+if (state.succeeded) {
+  return (
+    <div className="text-center max-w-md mx-auto">
+      <p className="text-green-500 font-semibold mb-4 text-lg">
+        Message received!
+      </p>
+      <p className="text-[--color-text-muted] mb-6">
+        I’ll reply to your email as soon as I can.
+      </p>
+      <button
+        className="inline-block bg-primary text-background font-extrabold rounded px-4 py-2 md:text-base transition-transform duration-200 hover:bg-[#e8c849] hover:scale-110"        onClick={() => window.location.reload()}
+      >
+        Send another message
+      </button>
+    </div>
+  );
+}
 
   return (
-    <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-      <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-primary">
-        Contact me!
-      </h2>
-      <p className="mb-8 lg:mb-16 font-bold text-center text-accent sm:text-xl">
-        Looking for a developer for your team or project? Send me a message with
-        the details, and let's talk!
-      </p>
-      <form className="space-y-6" onSubmit={handleSubmit}>
-        <div>
-          <label className="block mb-2 text-sm font-medium text-accent">
-            Your name:
-          </label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            onChange={handleChange}
-            value={formState.name}
-            className="text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-accentd1 focus:ring-primary focus:border-primary shadow-sm-light"
-            placeholder="What's your name?"
-            required
-          />
-        </div>
-        <div>
-          <label className="block mb-2 text-sm font-medium text-accent">
-            Your email:
-          </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            onChange={handleChange}
-            value={formState.email}
-            className="text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-accentd1 focus:ring-primary focus:border-primary shadow-sm-light"
-            placeholder="example@gmail.com"
-            required
-          />
-        </div>
-        <div>
-          <label className="block mb-2 text-sm font-medium text-accent">
-            Subject:
-          </label>
-          <input
-            type="text"
-            id="subject"
-            name="subject"
-            onChange={handleChange}
-            value={formState.subject}
-            className="text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-accentd1 focus:ring-primary focus:border-primary shadow-sm-light"
-            placeholder="Let me know how I can help you"
-            required
-          />
-        </div>
-        <div className="sm:col-span-2">
-          <label className="block mb-2 text-sm font-medium text-accent">
-            Your message:
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            onChange={handleChange}
-            value={formState.message}
-            className="text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-accentd1 focus:ring-primary focus:border-primary shadow-sm-light"
-            placeholder="Leave a comment..."
-          ></textarea>
-        </div>
-        <button
-          className="py-3 px-5 text-sm text-center text-[#2B2D42] font-extrabold rounded-lg bg-primary sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+    <form className="grid gap-y-6 p-4" onSubmit={handleSubmit}>
+      {/* Nombre */}
+      <div className="flex flex-col gap-y-2">
+        <label htmlFor="name" className="block font-medium">
+          Your Name
+        </label>
+        <input
+          id="name"
+          name="name"
+          placeholder="John Doe"
+          required
+          aria-required="true"
+          className="h-12 appearance-none rounded-xl border-0 px-4 ring-1 ring-inset bg-accent text-background placeholder:text-[--color-text-muted]"
+        />
+        <ValidationError prefix="Name" field="name" errors={state.errors} />
+      </div>
+
+      {/* Email */}
+      <div className="flex flex-col gap-y-2">
+        <label htmlFor="email" className="block font-medium">
+          Email
+        </label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="example@email.com"
+          required
+          aria-required="true"
+          className="h-12 appearance-none rounded-xl border-0 px-4 ring-1 ring-inset bg-accent text-background placeholder:text-[--color-text-muted]"
+        />
+        <ValidationError prefix="Email" field="email" errors={state.errors} />
+      </div>
+
+      {/* Mensaje */}
+      <div className="flex flex-col gap-y-2">
+        <label htmlFor="message" className="block font-medium">
+          Message
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="What would you like to discuss?"
+          required
+          aria-required="true"
+          className="h-32 resize-y rounded-xl border-0 px-4 py-3 text-background ring-1 ring-inset bg-accent placeholder:text-[--color-text-muted]"
+        />
+        <ValidationError prefix="Message" field="message" errors={state.errors} />
+      </div>
+
+      {/* Submit */}
+      <div className="flex justify-center">
+        <button 
+          type="submit" 
+          className="flex items-center gap-2 mx-auto bg-primary text-background font-extrabold rounded px-4 py-2 transition-transform duration-200 hover:bg-[#e8c849] hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed" 
+          disabled={state.submitting}
         >
-          Send message
+          {state.submitting ? "Sending..." : "Submit"}
+          <IoIosSend size={25} />
         </button>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 }

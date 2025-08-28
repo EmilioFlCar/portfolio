@@ -1,63 +1,69 @@
 ---
 import TechStack from "./TechStack.astro";
-
+import Slides from "./Slides.tsx";
 const { project } = Astro.props;
-const { title, link, technologies, image } = project.data;
+const { title, link, technologies, images } = project.data;
 ---
 
 <div
   class="bg-background hover:bg-[#3E4259] border-[#3E4259] md:hover:text-primary text-primary rounded-lg hover:shadow-md p-2 transition-colors duration-200"
 >
-  <div class="p-4 md:grid md:grid-cols-4 md:gap-4">
-    <div class="md:col-span-1 hidden md:block">
-      <div class="md:grid-rows-2">
-        <div class="md:row-1 md:flex md:items-center md:gap-3">
-          <img
-            src={image}
-            alt={title}
-            class="w-full h-50% object-cover rounded-lg transition-transform duration-200 transform hover:scale-120"
-          />
-        </div>
-        <div class="md:row-1">
-          <button>
-            <a href={link} target="_blank" rel="noopener noreferrer">
-              <span class="text-primary">DEMO</span>
-            </a>
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="md:col-span-3">
+  <div class="p-4 md:grid lg:grid-cols-1 md:gap-4">
+    <div class="lg:col-span-1">
       <div>
-        <h2 class="text-base font-extrabold flex items-center gap-3">
+        <h2
+          class="text-base font-extrabold lg:text-xl xl:text-2xl flex items-center gap-3"
+        >
           <span>{title}</span>
         </h2>
       </div>
       <div class="py-2">
-        <p class="text-accentd1 text-sm">
+        <p class="text-accentd1 text-sm md:text-base xl:text-lg">
           {project.body}
         </p>
       </div>
-      <div>
+      <div class="flex flex-wrap gap-2 mt-2">
         <TechStack techStack={technologies} />
       </div>
 
-      <div class="block md:hidden mt-4">
-        <div class="py-2">
-          <img
-            src={image}
-            alt={title}
-            class="w-full h-[auto] object-cover rounded-lg transition-transform duration-200 transform md:hover:scale-105 hover:scale-105"
-          />
-        </div>
-        <div class="mt-2">
-          <button
-            class="bg-primary text-background font-extrabold rounded px-4 py-2 hover:bg-[#e8c849] transition-colors duration-200"
-          >
-            <a href={link} target="_blank" rel="noopener noreferrer">
-              <span>DEMO</span>
-            </a>
-          </button>
+      <div class="block m-4">
+        {
+          images && images.length > 0 && (
+            <div class="flex items-center justify-center p-2">
+              <Slides client:only="react" images={images} />
+            </div>
+          )
+        }
+
+        <div class="flex flex-row justify-center gap-4 mt-4">
+          {
+            project.data.deployLink && (
+              <div class="mt-2">
+                <a
+                  href={project.data.deployLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-block bg-primary text-background font-extrabold rounded px-4 py-2 md:text-base transition-transform duration-200 hover:bg-[#e8c849] hover:scale-110"
+                >
+                  View Project
+                </a>
+              </div>
+            )
+          }
+          {
+            project.data.githubLink && (
+              <div class="mt-2">
+                <a
+                  href={project.data.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-block bg-primary text-background font-extrabold rounded px-4 py-2 md:text-base transition-transform duration-200 hover:bg-[#e8c849] hover:scale-110"
+                >
+                  View Code
+                </a>
+              </div>
+            )
+          }
         </div>
       </div>
     </div>

@@ -1,9 +1,12 @@
 ---
-title: "Rental System"
-role: "Fullstack developer"
-link: "https://diccionario.popular.edu.co"
-technologies: ["React.js", "Material-UI", "Node.js", "Express", "PostgreSQL", "Redux", "Sequelize"]
-image: "https://thumbs.dreamstime.com/b/no-preview-red-stamp-text-white-56287781.jpg"
+title: "Rental Management System"
+role: "Fullstack Developer"
+order: 3
+githubLink: "https://github.com/EmilioFlCar/rental-frontend"
+technologies: ["Node.js", "Express.js", "PostgreSQL", "Sequelize", "React.js", "Redux", "Material-UI", "jsPDF"]
+images: [
+
+]
 ---
 
-Developed a rental management system. Built the backend with Express and PostgreSQL, and created an intuitive frontend using React and Material-UI for a seamless user experience. The application allows users to add and manage rental properties, clients, generate invoices, and track rentals. Implemented JWT for secure authentication and deployed the demo
+Developed a web app to streamline the management of equipment rentals, including features for user handling, asset tracking, and automatic invoice generation. The platform improves efficiency for small businesses needing control over rented items. Built using a fullstack JavaScript architecture with PostgreSQL for data persistence and React for an intuitive UI.
