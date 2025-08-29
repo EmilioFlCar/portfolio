@@ -26,12 +26,10 @@ const { title, link, technologies, images } = project.data;
         <TechStack techStack={technologies} />
       </div>
 
-      <div class="block m-4">
+      <div class="">
         {
           images && images.length > 0 && (
-            <div class="flex items-center justify-center p-2">
-              <Slides client:only="react" images={images} />
-            </div>
+              <Slides client:load images={images}/>
           )
         }
 

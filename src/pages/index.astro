@@ -10,6 +10,63 @@ import { getCollection } from "astro:content";
 
 const experiences = await getCollection("experiences");
 const projects = await getCollection("projects");
+// const projects = [
+//   {
+//     title: "Hidrohuertos",
+//     role: "Fullstack Developer",
+//     order: 1,
+//     deployLink: "https://hidrohuertos.vercel.app/",
+//     githubLink: "https://github.com/EmilioFlCar/hidrohuertos-web",
+//     technologies: [
+//       "Next.js",
+//       "Supabase",
+//       "React.js",
+//       "Zustand",
+//       "Tailwind",
+//       "Vercel",
+//       "Typescript",
+//     ],
+//     images: [
+//       "/hidrohuertos/hidrohuertos-landing.png",
+//       "/hidrohuertos/dashboard.png",
+//       "/hidrohuertos/mycrops.png",
+//       "/hidrohuertos/crop-details.png",
+//     ],
+//     description:
+//       "Created the MVP for a platform that enables small-scale farmers to manage hydroponic crop systems efficiently. The project promotes food sustainability through digital tools that simplify tracking, monitoring, and organization of agricultural production. Built with a mobile-first approach using Next.js, TailwindCSS, and Supabase.",
+//   },
+//   {
+//     title: "The Fourth Element",
+//     role: "Backend Developer",
+//     order: 2,
+//     githubLink:
+//       "https://github.com/The-fourth-elements/The-fourth-Element-SERVER",
+//     technologies: ["Node.js", "Express.js", "MongoDB", "Mongoose", "Swagger"],
+//     images: [],
+//     description:
+//       "Participated in the backend development of a Learning Management System (LMS) designed for high-performance athletes. The system supports personalized learning and performance tracking in sports education. Worked closely with the frontend and design teams to ensure seamless API integration, using Node.js and MongoDB for the core architecture.",
+//   },
+//   {
+//     title: "Rental Management System",
+//     role: "Fullstack Developer",
+//     order: 3,
+//     githubLink: "https://github.com/EmilioFlCar/rental-frontend",
+//     technologies: ["Node.js", "Express.js", "PostgreSQL", "Sequelize", "React.js", "Redux", "Material-UI", "jsPDF"],
+//     images: [],
+//     description:
+//       "Developed a web app to streamline the management of equipment rentals, including features for user handling, asset tracking, and automatic invoice generation. The platform improves efficiency for small businesses needing control over rented items. Built using a fullstack JavaScript architecture with PostgreSQL for data persistence and React for an intuitive UI."
+//   },
+//   {
+//     title: "Electronic Dictionary",
+//     role: "Fullstack Developer",
+//     order: 4,
+//     githubLink: "https://github.com/EmFloCar/dehp-app",
+//     technologies: ["Vue.js", "Bulma", "Node.js", "Express.js", "MongoDB", "AWS S3"],
+//     images: [],
+//     description:
+//       "Developed a web platform to preserve and share the popular speech of the Sinú and San Jorge River Valleys, in collaboration with the University of Córdoba. The project serves as a digital archive that allows users to explore the region’s rich linguistic and cultural heritage through an accessible and interactive interface. Built with Vue.js and Node.js, and powered by MongoDB and AWS S3 for secure data and image handling."
+//   }
+// ];
 const sections = [
   { name: "ABOUT ME", id: "about" },
   // { name: "EXPERIENCE", id: "experience" },
@@ -132,7 +189,7 @@ const sections = [
               .sort((a, b) => (a.data?.order ?? 0) - (b.data?.order ?? 0))
               .map((project) => (
                 <li class="mb-6">
-                  <CardProject project={project} />
+                  <CardProject project={project}/>
                 </li>
               ))
           }
@@ -142,47 +199,48 @@ const sections = [
       <section class="section" id="contact">
         <ContactForm client:load />
       </section>
-      <footer
-        class="mt-20 py-6  text-center text-sm text-accentd1"
-      >
+      <footer class="mt-20 py-6 text-center text-sm text-accentd1">
         <p class="mt-1 opacity-80 md:text-base xl:text-lg px-4">
-          Built with <strong>Astro</strong>, styled with <strong>TailwindCSS</strong>, and enhanced with <strong>React</strong> for
-          some interactive components, deployed on <strong>Vercel</strong>.
+          Built with <strong>Astro</strong>, styled with <strong
+            >TailwindCSS</strong
+          >, and enhanced with <strong>React</strong> for some interactive components,
+          deployed on <strong>Vercel</strong>.
         </p>
         <a
           target="_blank"
-          href="https://open.spotify.com/intl-es/track/7I3skNaQdvZSS7zXY2VHId?si=85813b5e89a44d00">
-        <svg
-          class="mx-auto mt-6 opacity-50 hover:opacity-100 hover:scale-125 transition-all duration-300"
-          xmlns="http://www.w3.org/2000/svg"
-          x="0px"
-          y="0px"
-          width="35"
-          height="35"
-          viewBox="0,0,255.99057,255.99057"
+          href="https://open.spotify.com/intl-es/track/7I3skNaQdvZSS7zXY2VHId?si=85813b5e89a44d00"
         >
-          <g
-            fill="#dde108"
-            fill-rule="nonzero"
-            stroke="none"
-            stroke-width="1"
-            stroke-linecap="butt"
-            stroke-linejoin="miter"
-            stroke-miterlimit="10"
-            stroke-dasharray=""
-            stroke-dashoffset="0"
-            font-family="none"
-            font-weight="none"
-            font-size="none"
-            text-anchor="none"
-            style="mix-blend-mode: normal"
-            ><g transform="scale(5.12,5.12)"
-              ><path
-                d="M25,2c-12.69071,0 -23,10.3093 -23,23c0,12.6907 10.30929,23 23,23c12.69071,0 23,-10.3093 23,-23c0,-12.6907 -10.30929,-23 -23,-23zM25,4c11.60983,0 21,9.39017 21,21c0,11.60983 -9.39017,21 -21,21c-11.60983,0 -21,-9.39017 -21,-21c0,-11.60982 9.39017,-21 21,-21zM11,15v20h2v-20zM16,15v20h2v-20zM34.09375,15.57617l-7,15l1.8125,0.84766l7,-15zM39.09375,15.57617l-7,15l1.8125,0.84766l7,-15zM21,24v2h6v-2z"
-              ></path></g
-            ></g
+          <svg
+            class="mx-auto mt-6 opacity-50 hover:opacity-100 hover:scale-125 transition-all duration-300"
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="35"
+            height="35"
+            viewBox="0,0,255.99057,255.99057"
           >
-        </svg>
+            <g
+              fill="#dde108"
+              fill-rule="nonzero"
+              stroke="none"
+              stroke-width="1"
+              stroke-linecap="butt"
+              stroke-linejoin="miter"
+              stroke-miterlimit="10"
+              stroke-dasharray=""
+              stroke-dashoffset="0"
+              font-family="none"
+              font-weight="none"
+              font-size="none"
+              text-anchor="none"
+              style="mix-blend-mode: normal"
+              ><g transform="scale(5.12,5.12)"
+                ><path
+                  d="M25,2c-12.69071,0 -23,10.3093 -23,23c0,12.6907 10.30929,23 23,23c12.69071,0 23,-10.3093 23,-23c0,-12.6907 -10.30929,-23 -23,-23zM25,4c11.60983,0 21,9.39017 21,21c0,11.60983 -9.39017,21 -21,21c-11.60983,0 -21,-9.39017 -21,-21c0,-11.60982 9.39017,-21 21,-21zM11,15v20h2v-20zM16,15v20h2v-20zM34.09375,15.57617l-7,15l1.8125,0.84766l7,-15zM39.09375,15.57617l-7,15l1.8125,0.84766l7,-15zM21,24v2h6v-2z"
+                ></path></g
+              ></g
+            >
+          </svg>
         </a>
       </footer>
     </div>
